@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+    <title> Menu maker</title>
+</head>
+
+<body>
+    <div class="spacing-div">
+
+    </div>
+    <table style="display: {{display_recipe_table}}">
+        <th>Day</th><th>Recipe</th>
+    </table> 
+    <form class="center-form" method="post" action="/">
+            <input type="submit" 
+                   name="generate_recipes"
+                   value="Generate recipes"
+                   class="big-button w3-button w3-jumbo w3-blue w3-block">
+    </form>
+</body>
+</html>

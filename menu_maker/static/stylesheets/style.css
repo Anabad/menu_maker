@@ -1,0 +1,13 @@
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+}
+.spacing-div {
+    height: 80%;
+}
+.big-button {
+    margin: auto;
+    position: relative;
+} 
