@@ -1,15 +1,13 @@
-def getRandomRecipe():
-    """ Return a random recipe from the database
-    """
-    recipe = None
+from .API import *
 
-    return recipe
+class WeeklyMenu:
 
-def getWeeklyMeals():
-    menu = {
+    def __init__(self):
+        
+        self.menu = {
             "Monday":{
                 "Lunch": None,
-                "Dinner": "Fish"
+                "Dinner": None
             },
             "Tuesday":{
                 "Lunch": None,
@@ -36,5 +34,9 @@ def getWeeklyMeals():
                 "Dinner": None
             },
         }
-    print("Got weekly meals")
-    return menu
+        
+    def rerollMeal(self, day, meal):
+        self.menu[day][meal] = getRandomRecipe()
+
+    def generateMeals(self):
+        self.menu = getWeeklyMeals()

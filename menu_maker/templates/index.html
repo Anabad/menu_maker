@@ -12,7 +12,12 @@
 
     </div>
     <table style="display: {{display_recipe_table}}">
-        <th>Day</th><th>Recipe</th>
+        <tr>
+            <th>Day</th><th>Meal</th><th>Recipe</th>
+        </tr>
+        <tr>
+            <td>Monday</td><td>Dinner</td><td>{{menu_data['Monday']['Dinner']}}</td>
+        </tr>
     </table> 
     <form class="center-form" method="post" action="/">
             <input type="submit" 
