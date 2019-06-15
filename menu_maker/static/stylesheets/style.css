@@ -4,10 +4,41 @@ html {
 body {
     height: 100%;
 }
-.spacing-div {
-    height: 80%;
+
+.main-title {
+    align-content: center;
 }
+.table-div {
+    width: 100%;
+}
+.inner-table-div {
+    display: table;
+    margin: 0 auto;
+}
+/* .meal-table {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.meal-table-body {
+    width: 50%;
+    margin: 0 auto;
+} */
+
 .big-button {
     margin: auto;
     position: relative;
+    width: 90%
 } 
+
+.w3-table td {
+    padding: 8px 8px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+}
+  
+/* [name="reroll-td"] {
+    
+    vertical-align: middle!important;
+} */

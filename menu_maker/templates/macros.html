@@ -1,0 +1,36 @@
+{% macro menu_item(menu, day,  meal) %}
+<h4><a style="color: blue" href="{{menu['url']}}">{{menu['title']}}</a></h4>
+<ul class="w3-ul">
+    {% if 'preparationTime' in menu.keys() %}
+    <li>Preparation: {{menu['preparationTime']}} min</li>
+    {% endif %}
+    {% if 'cookingTime' in menu.keys() %}
+    <li>Cooking: {{menu['cookingTime']}} min</li>
+    {% endif %}
+    {% if 'vegetarian' in menu.keys() and menu['vegetarian'] %}
+    <li>Vegetarian</li>
+    {% endif %}
+</ul>
+{% endmacro %}
+{% macro actions(day,  meal) %}
+<td class="w3-green">
+    <form class="menu-form" method="post" action="/">
+        <input type="hidden" name="day" value="{{day}}">
+        <input type="hidden" name="meal" value="{{meal}}">
+        <input type="image"
+                src="/static/images/refresh.png"
+                name="reroll"
+                class="w3-button w3-block">
+    </form>
+</td>
+<td class="w3-red">
+        <form class="menu-form" method="post" action="/">
+            <input type="hidden" name="day" value="{{day}}">
+            <input type="hidden" name="meal" value="{{meal}}">
+            <input type="image"
+                    src="/static/images/trash.png"
+                    name="delete"
+                    class="w3-button w3-block">
+        </form>
+    </td>
+{% endmacro %}

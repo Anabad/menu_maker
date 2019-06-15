@@ -1,9 +1,10 @@
-from .API import *
+from .API import API
 
 class WeeklyMenu:
 
     def __init__(self):
-        
+        self.api = API()
+        self.isset = False
         self.menu = {
             "Monday":{
                 "Lunch": None,
@@ -36,7 +37,13 @@ class WeeklyMenu:
         }
         
     def rerollMeal(self, day, meal):
-        self.menu[day][meal] = getRandomRecipe()
+        self.menu[day][meal] = self.api.getRandomRecipe()
 
     def generateMeals(self):
-        self.menu = getWeeklyMeals()
+        self.menu = self.api.getWeeklyMeals()
+        self.isset = True
+
+    def deleteRecipe(self, day, meal):
+        menuItem = self.menu[day][meal]
+        self.api.delete(menuItem)
+    

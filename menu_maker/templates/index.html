@@ -4,26 +4,86 @@
 <head>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+    {% from 'macros.html' import menu_item, actions %}
     <title> Menu maker</title>
 </head>
 
 <body>
-    <div class="spacing-div">
-
+    <div class="w3-container w3-blue w3-centered">
+        <h1 class="w3-center w3-jumbo">Menu maker</h1>
     </div>
-    <table style="display: {{display_recipe_table}}">
-        <tr>
-            <th>Day</th><th>Meal</th><th>Recipe</th>
-        </tr>
-        <tr>
-            <td>Monday</td><td>Dinner</td><td>{{menu_data['Monday']['Dinner']}}</td>
-        </tr>
-    </table> 
     <form class="center-form" method="post" action="/">
-            <input type="submit" 
-                   name="generate_recipes"
-                   value="Generate recipes"
-                   class="big-button w3-button w3-jumbo w3-blue w3-block">
+        <input type="submit" 
+               name="generate_recipes"
+               value="Generate recipes"
+               class="big-button w3-button w3-jumbo w3-green w3-block">
     </form>
+        
+    <div class="table-div">
+        <div class="inner-table-div">
+            {% if menu_isset %}    
+            <table class="w3-table w3-striped w3-bordered w3-centered meal-table">
+                <tbody class="meal-table-body">
+                    <tr>
+                        <th>Day</th><th>Meal</th><th>Recipe</th>
+                    </tr>
+                    <tr>
+                        <td>Monday</td>
+                        <td>Dinner</td>
+                        <td>{{menu_item(menu_data['Monday']['Dinner'])}}</td>
+                        {{actions('Monday', 'Dinner')}}
+                    </tr>
+                    <tr>    
+                        <td>Tuesday</td>
+                        <td>Dinner</td>
+                        <td>{{menu_item(menu_data['Tuesday']['Dinner'])}}</td>
+                        {{actions('Tuesday', 'Dinner')}}
+                    </tr>
+                    <tr>    
+                        <td>Wednesday</td>
+                        <td>Dinner</td>
+                        <td>{{menu_item(menu_data['Wednesday']['Dinner'])}}</td>
+                        {{actions('Wednesday', 'Dinner')}}
+                    </tr>
+                    <tr>    
+                        <td>Thursday</td>
+                        <td>Dinner</td>
+                        <td>{{menu_item(menu_data['Thursday']['Dinner'])}}</td>
+                        {{actions('Thursday', 'Dinner')}}
+                    </tr>
+                    <tr>    
+                        <td>Friday</td>
+                        <td>Dinner</td>
+                        <td>{{menu_item(menu_data['Friday']['Dinner'])}}</td>
+                        {{actions('Friday', 'Dinner')}}
+                    </tr>
+                    </tr>    
+                        <td rowspan="2">Saturday</td>
+                        <td>Lunch</td>
+                        <td>{{menu_item(menu_data['Saturday']['Lunch'])}}</td>
+                        {{actions('Saturday', 'Lunch')}}
+                    </tr>
+                    <tr>    
+                        <td>Dinner</td>
+                        <td>{{menu_item(menu_data['Saturday']['Dinner'], 'Saturday', 'Dinner')}}</td>
+                        {{actions('Saturday', 'Dinner')}}
+                    </tr>
+                    <tr>   
+                        <td rowspan="2">Sunday</td>
+                        <td>Lunch</td>
+                        <td>{{menu_item(menu_data['Sunday']['Lunch'], 'Sunday', 'Lunch')}}</td>
+                        {{actions('Sunday', 'Lunch')}}
+                    </tr>
+                    <tr>    
+                        <td>Dinner</td>
+                        <td>{{menu_item(menu_data['Sunday']['Dinner'], 'Sunday', 'Dinner')}}</td>
+                        {{actions('Sunday', 'Dinner')}}
+                    </tr>    
+                </tbody>
+            </table>
+            {% endif %} 
+        </div>
+    </div>
+
 </body>
 </html>
